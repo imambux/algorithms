@@ -32,11 +32,33 @@ public class FrequencyCounter {
     return true;
   }
 
+  public static boolean validAnagram(String str1, String str2) {
+    if (str1.length() != str2.length()) return false;
+
+    Map<Character, Integer> str1FC = new HashMap<>();
+    for (char c : str1.toCharArray()) {
+      str1FC.merge(c, 1, Integer::sum);
+    }
+
+    for (char c: str2.toCharArray()) {
+      if (str1FC.get(c) == null || str1FC.get(c) == 0) {
+        return false;
+      } else {
+        str1FC.put(c, str1FC.get(c) - 1);
+      }
+    }
+
+    return true;
+  }
+
   public static void main(String[] args) {
-    System.out.println(same(new int[]{1,2,3}, new int[]{1,4,9})); // true
-    System.out.println(same(new int[]{1,2,1,3}, new int[]{1,4,9,1})); // true
-    System.out.println(same(new int[]{1,2,1,3}, new int[]{1,4,9,2})); // false
-    System.out.println(same(new int[]{1,2,1,3}, new int[]{1})); // false
+    System.out.println(validAnagram("", "")); // true
+    System.out.println(validAnagram("aaz", "zza")); // false
+    System.out.println(validAnagram("anagram", "nagaram")); // true
+    System.out.println(validAnagram("rat", "car")); // false
+    System.out.println(validAnagram("awesome", "awesom")); // false
+    System.out.println(validAnagram("qwerty", "qeywrt")); // true
+    System.out.println(validAnagram("texttwisttime", "timetwisttext")); // true
   }
 
 }
