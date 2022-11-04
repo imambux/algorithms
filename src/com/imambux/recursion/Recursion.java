@@ -1,8 +1,10 @@
 package com.imambux.recursion;
 
+import com.imambux.OutputUtil;
+
 import java.util.Arrays;
 
-public class Factorial {
+public class Recursion {
 
   public static int recursiveRange(int n) {
     if (n == 0) return 0;
@@ -35,9 +37,11 @@ public class Factorial {
   }
 
   public static void main(String[] args) {
-    System.out.println("====== reverse ======");
-    System.out.println(reverse("hello"));
-    System.out.println(reverse("awesome"));
+    OutputUtil.println(
+        "reverse",
+        reverse("hello"),
+        reverse("awesome")
+    );
 
 //    System.out.println(fib(4)); // 3
 //    System.out.println(fib(10)); // 55
