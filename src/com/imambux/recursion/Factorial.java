@@ -28,7 +28,17 @@ public class Factorial {
     return fib(nthNumber - 1) + fib(nthNumber - 2);
   }
 
+  public static String reverse(String str) {
+    if (str.length() == 0) return "";
+
+    return str.charAt(str.length() - 1) + reverse(str.substring(0, str.length() - 1));
+  }
+
   public static void main(String[] args) {
+    System.out.println("====== reverse ======");
+    System.out.println(reverse("hello"));
+    System.out.println(reverse("awesome"));
+
 //    System.out.println(fib(4)); // 3
 //    System.out.println(fib(10)); // 55
 
