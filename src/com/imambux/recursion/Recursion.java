@@ -58,6 +58,25 @@ public class Recursion {
 
 //    System.out.println(factorial(5));
 //    System.out.println(factorial(6));
+
+    OutputUtil.println("isPalindrome",
+        isPalindrome("aa"), // true
+        isPalindrome("awesome"), // false
+        isPalindrome("foobar"), // false
+        isPalindrome("tacocat"), // true
+        isPalindrome("amanaplanacanalpanama"), // true
+        isPalindrome("amanaplanacanalpandemonium") // false
+    );
+  }
+
+  private static boolean isPalindrome(String str) {
+    // base condition
+    if (str.length() == 0 || str.length() == 1) return true;
+
+    if (str.charAt(0) != str.charAt(str.length() - 1)) return false;
+
+    // logic that directs to the base condition
+    return isPalindrome(str.substring(1, str.length() - 1));
   }
 
   private static int productOfArray(int[] nums) {
