@@ -69,6 +69,26 @@ public class Recursion {
     );
   }
 
+
+
+  // TODO: Solve later
+  public static final String[] capitalizeFirst(String[] str) {
+//    if (str.length == 0) return "";
+//
+//    String capitalized = "";
+//    char[] chars = str[0].toCharArray();
+//    for (int i = 0; i < chars.length; i++) {
+//      if (i == 0) {
+//        capitalized += (chars[0] + "").toUpperCase();
+//      } else {
+//        capitalized += chars[i];
+//      }
+//    }
+//
+//    return new String[]{capitalized, capitalizeFirst(Arrays.copyOfRange(str, 1, str.length))};
+    return new String[]{};
+  }
+
   private static boolean isPalindrome(String str) {
     // base condition
     if (str.length() == 0 || str.length() == 1) return true;

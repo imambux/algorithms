@@ -12,6 +12,16 @@ public class OutputUtil {
     System.out.println();
   }
 
+  public static void println(String heading, int... outputs) {
+    System.out.println("=========== " + heading + " ============");
+    for (int output : outputs) {
+      System.out.println(output);
+    }
+    System.out.println();
+    System.out.println();
+    System.out.println();
+  }
+
   public static void println(String heading, Boolean... outputs) {
     System.out.println("=========== " + heading + " ============");
     for (Boolean output : outputs) {
