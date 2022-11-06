@@ -5,11 +5,23 @@ import java.util.Arrays;
 
 public class MergeSort {
   public static void main(String[] args) {
-    System.out.println(Arrays.toString(merge(new int[]{1,5,10,12,50}, new int[]{2,12, 14,99,100})));
+    System.out.println(Arrays.toString(merge(new Integer[]{1,5,10,12,50}, new Integer[]{2,12, 14,99,100})));
+    System.out.println(mergeSort(new Integer[]{ 1,4,3,5,35,3,2,5,8,6,90,4,55 }));
+
 //    System.out.println(sort(new int[]{32,12,0,4,54,34,3,8,10,77}));
   }
 
-  private static Integer[] merge(int[] arr1, int[] arr2) {
+  public static Integer[] mergeSort(Integer[] arr) {
+    if (arr.length == 0 || arr.length == 1) return arr;
+
+    int mid = (int) Math.floor(arr.length/2);
+    Integer[] left = mergeSort(Arrays.copyOfRange(arr, 0, mid));
+    Integer[] right = mergeSort(Arrays.copyOfRange(arr, mid, arr.length));
+
+    return merge(left, right);
+  }
+
+  private static Integer[] merge(Integer[] arr1, Integer[] arr2) {
     ArrayList<Integer> results = new ArrayList<>();
 
     int i = 0;
