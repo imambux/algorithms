@@ -1,7 +1,5 @@
 package com.imambux.recursion;
 
-import com.imambux.OutputUtil;
-
 import java.util.Arrays;
 
 public class Recursion {
@@ -36,12 +34,42 @@ public class Recursion {
     return str.charAt(str.length() - 1) + reverse(str.substring(0, str.length() - 1));
   }
 
+  private static void recursiveMethod(int n) {
+    if (n < 1) {
+      System.out.println("n is less than 1");
+    } else {
+      recursiveMethod(n - 1);
+      System.out.println(n);
+    };
+  }
+
+  private static int powerOfTwo(int n) {
+    if (n == 0) return 1;
+
+    int power = 2 * powerOfTwo(n - 1);
+
+    return power;
+  }
+
+  private static int sumOfDigits(int n) {
+    if (n < 10) return n;
+
+    return n%10 + sumOfDigits(n/10);
+  }
+
+
   public static void main(String[] args) {
-    OutputUtil.println(
-        "reverse",
-        reverse("hello"),
-        reverse("awesome")
-    );
+    System.out.println(sumOfDigits(10203));
+
+//    System.out.println(powerOfTwo(3));
+
+//    recursiveMethod(5);
+
+//    OutputUtil.println(
+//        "reverse",
+//        reverse("hello"),
+//        reverse("awesome")
+//    );
 
 //    System.out.println(fib(4)); // 3
 //    System.out.println(fib(10)); // 55
@@ -59,14 +87,14 @@ public class Recursion {
 //    System.out.println(factorial(5));
 //    System.out.println(factorial(6));
 
-    OutputUtil.println("isPalindrome",
-        isPalindrome("aa"), // true
-        isPalindrome("awesome"), // false
-        isPalindrome("foobar"), // false
-        isPalindrome("tacocat"), // true
-        isPalindrome("amanaplanacanalpanama"), // true
-        isPalindrome("amanaplanacanalpandemonium") // false
-    );
+//    OutputUtil.println("isPalindrome",
+//        isPalindrome("aa"), // true
+//        isPalindrome("awesome"), // false
+//        isPalindrome("foobar"), // false
+//        isPalindrome("tacocat"), // true
+//        isPalindrome("amanaplanacanalpanama"), // true
+//        isPalindrome("amanaplanacanalpandemonium") // false
+//    );
   }
 
 
