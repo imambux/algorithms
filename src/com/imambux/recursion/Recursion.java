@@ -51,6 +51,13 @@ public class Recursion {
     return power;
   }
 
+  private static int power(int base, int power) {
+    if (power < 0) return -1;
+    if (power == 0) return 1;
+
+    return base * power(base, power - 1);
+  }
+
   private static int sumOfDigits(int n) {
     if (n < 10) return n;
 
@@ -59,7 +66,10 @@ public class Recursion {
 
 
   public static void main(String[] args) {
-    System.out.println(sumOfDigits(10203));
+    System.out.println(power(2, 4));
+    System.out.println(power(2, -4));
+
+//    System.out.println(sumOfDigits(10203));
 
 //    System.out.println(powerOfTwo(3));
 
