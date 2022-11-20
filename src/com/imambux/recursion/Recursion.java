@@ -1,5 +1,7 @@
 package com.imambux.recursion;
 
+import com.imambux.OutputUtil;
+
 import java.util.Arrays;
 
 public class Recursion {
@@ -58,6 +60,12 @@ public class Recursion {
     return base * power(base, power - 1);
   }
 
+  private static int gcd(int x, int y) {
+    if (y == 0) return x;
+
+    return gcd(y, x % y);
+  }
+
   private static int sumOfDigits(int n) {
     if (n < 10) return n;
 
@@ -65,9 +73,14 @@ public class Recursion {
   }
 
 
+
+
   public static void main(String[] args) {
-    System.out.println(power(2, 4));
-    System.out.println(power(2, -4));
+    OutputUtil.println("gcd", gcd(48, 18));
+    OutputUtil.println("gcd", gcd(18, 48));
+
+//    System.out.println(power(2, 4));
+//    System.out.println(power(2, -4));
 
 //    System.out.println(sumOfDigits(10203));
 
