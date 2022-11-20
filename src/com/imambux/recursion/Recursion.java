@@ -84,10 +84,21 @@ public class Recursion {
     return odd.isOdd(arr[0]) || someRecursive(Arrays.copyOfRange(arr, 1, arr.length), odd);
   }
 
+  private static String firstUppercase(String str) {
+    if (str.length() == 0) return "";
+
+    return (str.charAt(0) >= 65 && str.charAt(0) <= 90) ? Character.toString(str.charAt(0)) : firstUppercase(str.substring(1));
+
+  }
+
   public static void main(String[] args) {
-    OutputUtil.println("someRecursive", someRecursive(new int[]{1,2,3,4}, new OddFunction())); // true
-    OutputUtil.println("someRecursive", someRecursive(new int[]{4,6,8,9}, new OddFunction())); // true
-    OutputUtil.println("someRecursive", someRecursive(new int[]{4,6,8}, new OddFunction())); // false
+    OutputUtil.println("firstUppercase", firstUppercase("abcdE")); // E
+    OutputUtil.println("firstUppercase", firstUppercase("abcd")); // ""
+    OutputUtil.println("firstUppercase", firstUppercase("abcdGhz")); // 'G'
+
+//    OutputUtil.println("someRecursive", someRecursive(new int[]{1,2,3,4}, new OddFunction())); // true
+//    OutputUtil.println("someRecursive", someRecursive(new int[]{4,6,8,9}, new OddFunction())); // true
+//    OutputUtil.println("someRecursive", someRecursive(new int[]{4,6,8}, new OddFunction())); // false
 
 
 //    OutputUtil.println("decimalToBinary", decimalToBinary(10));
