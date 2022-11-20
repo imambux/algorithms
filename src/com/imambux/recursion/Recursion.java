@@ -72,12 +72,20 @@ public class Recursion {
     return n%10 + sumOfDigits(n/10);
   }
 
+  private static int decimalToBinary(int x) {
+    if (x == 0) return 0;
+
+    return (decimalToBinary(x / 2) * 10) + x % 2;
+  }
 
 
 
   public static void main(String[] args) {
-    OutputUtil.println("gcd", gcd(48, 18));
-    OutputUtil.println("gcd", gcd(18, 48));
+    OutputUtil.println("decimalToBinary", decimalToBinary(10));
+    OutputUtil.println("decimalToBinary", decimalToBinary(13));
+
+//    OutputUtil.println("gcd", gcd(48, 18));
+//    OutputUtil.println("gcd", gcd(18, 48));
 
 //    System.out.println(power(2, 4));
 //    System.out.println(power(2, -4));
