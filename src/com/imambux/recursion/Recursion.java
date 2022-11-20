@@ -78,11 +78,20 @@ public class Recursion {
     return (decimalToBinary(x / 2) * 10) + x % 2;
   }
 
+  private static boolean someRecursive(int[] arr, OddFunction odd) {
+    if (arr.length == 0) return false;
 
+    return odd.isOdd(arr[0]) || someRecursive(Arrays.copyOfRange(arr, 1, arr.length), odd);
+  }
 
   public static void main(String[] args) {
-    OutputUtil.println("decimalToBinary", decimalToBinary(10));
-    OutputUtil.println("decimalToBinary", decimalToBinary(13));
+    OutputUtil.println("someRecursive", someRecursive(new int[]{1,2,3,4}, new OddFunction())); // true
+    OutputUtil.println("someRecursive", someRecursive(new int[]{4,6,8,9}, new OddFunction())); // true
+    OutputUtil.println("someRecursive", someRecursive(new int[]{4,6,8}, new OddFunction())); // false
+
+
+//    OutputUtil.println("decimalToBinary", decimalToBinary(10));
+//    OutputUtil.println("decimalToBinary", decimalToBinary(13));
 
 //    OutputUtil.println("gcd", gcd(48, 18));
 //    OutputUtil.println("gcd", gcd(18, 48));
@@ -164,4 +173,9 @@ public class Recursion {
     return nums[0] * productOfArray(Arrays.copyOfRange(nums, 1, nums.length));
   }
 
+  private static class OddFunction {
+    public boolean isOdd(int i) {
+      return i % 2 != 0;
+    }
+  }
 }
